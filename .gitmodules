@@ -1,3 +1,9 @@
 [submodule "external/doctest"]
 	path = external/doctest
 	url = https://github.com/onqtam/doctest
+[submodule "external/sciter-sdk"]
+	path = external/sciter-sdk
+	url = https://github.com/c-smile/sciter-sdk
+[submodule "ui"]
+	path = ui
+	url = https://github.com/arqueffe/cmapf-gui
