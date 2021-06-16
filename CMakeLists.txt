@@ -19,6 +19,7 @@ include(Doctest)
 include(Documentation)
 include(LTO)
 include(Misc)
+include(Sciter)
 include(Warnings)
 
 FIND_PACKAGE( Boost 1.71 COMPONENTS program_options REQUIRED )
@@ -33,7 +34,8 @@ find_lto(CXX)
 # --------------------------------------------------------------------------------
 #                         Locate files (change as needed).
 # --------------------------------------------------------------------------------
-set(SOURCES          # All .cpp files in src/
+set(SOURCES          
+    # All .cpp files in src/
     "src/Path.cpp"
     "src/Configuration.cpp"
     "src/Execution.cpp"

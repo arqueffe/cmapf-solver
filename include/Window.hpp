@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2021 Arthur Queffelec
+/* Copyright (c) 2021 Arthur Queffelec
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -11,22 +11,18 @@
  * all copies or substantial portions of the Software.
  */
 
-#include <Window.hpp>
-#include <iostream>
-#include <functional>
+#include "sciter-x.h"
+#include "sciter-x-window.hpp"
+#include "../app/resources.cpp"
 
-int main() {
-  std::cout << "Hello CMake." << std::endl;
-  return 0;
-}
+class Frame : public sciter::window {
+ public:
+  Frame() : window(SW_TITLEBAR | SW_RESIZEABLE | SW_CONTROLS | SW_MAIN | SW_ENABLE_DEBUG) {}
 
-int uimain(std::function<int()> run) {
-  sciter::archive::instance().open(
-      aux::elements_of(resources));
-  sciter::om::hasset<Frame> pwin = new Frame();
-  pwin->load(WSTR("this://app/index.htm"));
+  SOM_PASSPORT_BEGIN(Frame)
+  SOM_FUNCS(SOM_FUNC(nativeMessage))
+  SOM_PASSPORT_END
 
-  pwin->expand();
-
-  return run();
-}
+  // function expsed to script:
+  sciter::string nativeMessage() { return WSTR("Hello C++ World"); }
+};
