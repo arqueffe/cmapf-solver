@@ -19,7 +19,6 @@ include(Doctest)
 include(Documentation)
 include(LTO)
 include(Misc)
-include(Sciter)
 include(Warnings)
 
 FIND_PACKAGE( Boost 1.71 COMPONENTS program_options REQUIRED )
@@ -83,3 +82,4 @@ set_target_properties(
 )
 # Set up tests (see tests/CMakeLists.txt).
 add_subdirectory(tests)
+include(Sciter)

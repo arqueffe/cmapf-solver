@@ -1,7 +1,12 @@
-include_directories(${PROJECT_SOURCE_DIR}/external/sciter-sdk/include)
+set(GUI_MAIN gui_main)
 
-if (WIN32)
-	set(SOURCES ${PROJECT_SOURCE_DIR}/external/sciter-sdk/include/sciter-win-main.cpp)
-else()
-	set(SOURCES ${PROJECT_SOURCE_DIR}/external/sciter-sdk/include/sciter-gtk-main.cpp)
-endif()
+set(GUI_FILES
+	"app/main.cpp"
+	"external/sciter-sdk/include/sciter-win-main.cpp"
+)
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:wWinMainCRTStartup")
+
+include_directories(${PROJECT_SOURCE_DIR}/external/sciter-sdk/include)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+add_executable(${GUI_MAIN} ${GUI_FILES})

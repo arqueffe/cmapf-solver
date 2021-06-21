@@ -15,16 +15,10 @@
 #include <iostream>
 #include <functional>
 
-int main() {
-  std::cout << "Hello CMake." << std::endl;
-  return 0;
-}
-
 int uimain(std::function<int()> run) {
-  sciter::archive::instance().open(
-      aux::elements_of(resources));
+  sciter::archive::instance().open(aux::elements_of(resources));
   sciter::om::hasset<Frame> pwin = new Frame();
-  pwin->load(WSTR("this://app/index.htm"));
+  pwin->load(WSTR("this://app/index.html"));
 
   pwin->expand();
 
